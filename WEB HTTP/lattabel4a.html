@@ -1,0 +1,165 @@
+<!--DATA TAMBAHAN FOTO BERBENTUK BULAT, BESERTA 3  BUTTON DI SAMPING KANAN, BESERTA 1 TOMBOL DIBAWAH 
+  (TOMBOL BERFUNGSI)(DENGAN PAGINATION)-->
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, 
+initial-scale=1.0"> 
+<title>Data Pegawai</title> 
+<style> 
+body { 
+font-family: Arial, sans-serif; 
+} 
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 20px; 
+    } 
+ 
+    th, td { 
+      border: 1px solid #dddddd; 
+      padding: 8px; 
+      text-align: left; 
+    } 
+ 
+    tr:nth-child(even) { 
+      background-color: #f2f2f2; 
+    } 
+ 
+    .pagination { 
+      display: flex; 
+      justify-content: center; 
+      margin-top: 20px; 
+    } 
+ 
+    .pagination a { 
+      color: black; 
+      padding: 8px 16px; 
+      text-decoration: none; 
+      transition: background-color 0.3s; 
+    } 
+ 
+    .pagination a:hover { 
+      background-color: #ddd; 
+    } 
+ 
+    .active { 
+      background-color: #4CAF50; 
+      color: white; 
+    } 
+    img {
+    border-radius: 50%; /*INI BIAR SISI FOTO MENJADI MELENGKUNG / BULAT */
+}
+  </style> 
+</head> 
+<body> 
+ 
+  <h2>Data Pegawai</h2> 
+ 
+  <table> 
+    <thead> 
+      <tr> 
+        <th>NIK</th> 
+        <th>Foto</th> 
+        <th>Nama Pegawai</th> 
+        <th>Alamat</th> 
+        <th>Umur</th> 
+        <th>Actions</th>
+      </tr> 
+    </thead> 
+    <tbody id="employeeTable"> 
+    </tbody> 
+  </table> 
+ 
+  <div class="pagination" id="pagination"> 
+  </div> 
+
+  <script> 
+    const employees = [ 
+      { nik: '12345', foto:'kucing.png', name: 'John Doe', address: 'Jl. Contoh No. 123', age: '28' },
+      { nik: '67890', foto:'anggrek.png', name: 'Jane Smith', address: 'Jl. Sample No. 456', age: '35' },
+      { nik: '54321', foto:'kucing.png', name: 'Bob Johnson', address: 'Jl. Example No. 789', age: '42' },
+      { nik: '98765', foto:'anggrek.png', name: 'Alice Brown', address: 'Jl. Demo No. 012', age: '31' },
+      { nik: '13579', foto:'kucing.png', name: 'Charlie Green', address: 'Jl. Test No. 345', age: '29'},
+    ];
+
+    function displayData(page) { 
+      const tableBody = document.getElementById('employeeTable'); 
+      tableBody.innerHTML = ''; 
+ 
+      const start = (page - 1) * 3; 
+      const end = start + 3; 
+ 
+      const paginatedData = employees.slice(start, end); 
+ 
+      paginatedData.forEach((employee, index) => { 
+        const row = document.createElement('tr'); 
+        row.innerHTML = `<td>${employee.nik}</td> 
+                        <td><img src="${employee.foto}" alt="Foto" width="100" height="100"></td> 
+                        <td>${employee.name}</td> 
+                        <td>${employee.address}</td> 
+                        <td>${employee.age}</td>
+                        <td>
+                          <button onclick="editEmployee(${index})">Edit</button>
+                          <button onclick="deleteEmployee(${index})">Delete</button>
+                        </td>` 
+        tableBody.appendChild(row); 
+      }); 
+    } 
+    
+    //Edit Employee
+    function editEmployee(index) {
+      const newName = prompt("Enter new name:");
+      if (newName !== null) {
+        employees[index].name = newName;
+        displayData(1);
+      }
+    }
+
+    // Delete Employee
+    function deleteEmployee(index) {
+      const confirmation = confirm("Are you sure you want to delete this employee?");
+      if (confirmation) {
+        employees.splice(index, 1);
+        displayData(1);
+      }
+    }
+ 
+    function displayPagination() { 
+      const paginationContainer = document.getElementById('pagination'); 
+      paginationContainer.innerHTML = ''; 
+ 
+      const totalPages = Math.ceil(employees.length / 3); 
+ 
+      for (let i = 1; i <= totalPages; i++) { 
+        const link = document.createElement('a'); 
+        link.href = '#'; 
+        link.textContent = i; 
+ 
+        link.addEventListener('click', function () { 
+          displayData(i); 
+          highlightActivePage(i); 
+        }); 
+ 
+        paginationContainer.appendChild(link); 
+      } 
+ 
+      if (totalPages > 0) { 
+        displayData(1); 
+        highlightActivePage(1); 
+      } 
+    } 
+ 
+    function highlightActivePage(page) { 
+      const links = document.querySelectorAll('.pagination a'); 
+      links.forEach(link => link.classList.remove('active')); 
+      links[page - 1].classList.add('active'); 
+    } 
+ 
+    displayPagination(); 
+  </script> 
+  <button type="button" style="background-color: #0909d8; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Tambah Data</button>
+</body> 
+</html>

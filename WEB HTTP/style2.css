@@ -1,0 +1,11 @@
+/*<!-- File style.css -->*/
+/* style.css */
+p {
+    color: red;
+    font-size: 20px;
+}
+
+.colored-div {
+    background-color: #99ff99;
+    padding: 10px;
+}

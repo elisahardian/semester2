@@ -1,0 +1,107 @@
+<!--DATA TAMBAHAN FOTO, BESERTA 3  BUTTON DI SAMPING KANAN, BESERTA 1 TOMBOL DIBAWAH (TOMBOL TIDAK BERFUNGSI)(TANPA PAGINATION)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+    <!-- dari sini css -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        } 
+
+        /* Ganti warna latar belakang setiap baris secara bergantian */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style> 
+    <!-- sampe sini CSS -->
+</head>
+<body>
+    <h2>Data Pegawai</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>NIK</th>
+                <th>foto</th>
+                <th>Nama Pegawai</th>
+                <th>Alamat</th>
+                <th>Umur</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>12345</td>
+                <td><img src="kucing.png" alt="Gambar Kucing Yang Lucu" width="100" height="80"></td>
+                <td>Reny</td>
+                <td>Jl. Sudirman Raya No. 123</td>
+                <td>28</td>
+                <td><button type="button" style="background-color: #4b724d; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Print</button>
+                    <button type="button" style="background-color: #99cb24; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Ubah</button>
+                    <button type="button" style="background-color: #eb4a0a; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>67890</td>
+                <td><img src="kucing.png" alt="Gambar Kucing Yang Lucu" width="100" height="80"></td>
+                <td>Tony</td>
+                <td>Jl. Kelapa Gading Raya No. 789</td>
+                <td>35</td>
+                <td><button type="button" style="background-color: #4b724d; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Print</button>
+                    <button type="button" style="background-color: #99cb24; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Ubah</button>
+                    <button type="button" style="background-color: #eb4a0a; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>54321</td>
+                <td><img src="anggrek.png" alt="Gambar Kucing Yang Lucu" width="100" height="80"></td>
+                <td>Serly</td>
+                <td>Jl. Kedondong Raya No. 789</td>
+                <td>42</td>
+                <td><button type="button" style="background-color: #4b724d; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Print</button>
+                    <button type="button" style="background-color: #99cb24; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Ubah</button>
+                    <button type="button" style="background-color: #eb4a0a; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>98765</td>
+                <td><img src="kucing.png" alt="Gambar Kucing Yang Lucu" width="100" height="80"></td>
+                <td>Antonius</td>
+                <td>Jl. Depok Raya No. 012</td>
+                <td>31</td>
+                <td><button type="button" style="background-color: #4b724d; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Print</button>
+                    <button type="button" style="background-color: #99cb24; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Ubah</button>
+                    <button type="button" style="background-color: #eb4a0a; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>13579</td>
+                <td><img src="anggrek.png" alt="Gambar Kucing Yang Lucu" width="100" height="80"></td>
+                <td>Ratna</td>
+                <td>Jl. Komodo No. 345</td>
+                <td>29</td>
+                <td><button type="button" style="background-color: #4b724d; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Print</button>
+                    <button type="button" style="background-color: #99cb24; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Ubah</button>
+                    <button type="button" style="background-color: #eb4a0a; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" style="background-color: #0909d8; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Tambah Data</button>
+</body>
+</html>
